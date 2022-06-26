@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   background-color: #0B2434;
+  font-family: 'Karla', sans-serif;
 }
 
 .main {
@@ -11,4 +12,52 @@
   max-width: 1000px;
   height: 500px;
   border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.game-title {
+  background-color: transparent;
+  margin: 2em auto;
+  text-align: center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+}
+
+.game-title h1 {
+  margin: 0 0 .5em;
+  background-color: transparent;
+}
+
+.game-title p {
+  background-color: transparent;
+  max-width: 500px;
+  margin: 0 3em;
+}
+
+.dice-container {
+  background-color: transparent;
+  display: grid;
+  grid-template: repeat(2, 50px) / repeat(5, 50px);
+  gap: 2.5em;
+  /* justify-self: center; */
+  /* margin: 0 auto; */
+}
+
+.die {
+  background-color: #fff;
+  color: #2b283a;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
