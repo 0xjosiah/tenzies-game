@@ -42,7 +42,7 @@
 .dice-container {
   background-color: transparent;
   display: grid;
-  grid-template: repeat(2, 50px) / repeat(5, 50px);
+  grid-template: auto auto / repeat(5, 1fr);
   gap: 2.5em;
   /* justify-self: center; */
   /* margin: 0 auto; */
@@ -57,7 +57,8 @@
   justify-content: center;
   align-items: center;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 1.5rem;
   font-weight: 700;
+  cursor: pointer;
 }

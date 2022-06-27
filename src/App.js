@@ -1,10 +1,22 @@
 import './index.css';
 import Dice from './components/Dice'
+import { useState } from 'react';
 
 function App() {
+
   const randomDieRoll = () => {
-    return Math.floor(Math.random() * 6) + 1
+    return Math.ceil(Math.random() * 6)
   }
+
+  const [dice, setDice] = useState(new Array(10).fill().map(i => (
+    {
+      id: i,
+      value: randomDieRoll(),
+      isLocked: false
+    }
+  )))
+
+  console.log(dice)
 
   return (
     <main className='main'>
@@ -13,7 +25,7 @@ function App() {
         <p>Roll until all dice are the same. Click each die 
         to freeze it at its current value between rolls.</p>
       </div>
-      <Dice value={randomDieRoll} />
+      <Dice dice={dice} />
     </main>
   );
 }
