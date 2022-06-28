@@ -33,16 +33,9 @@ function App() {
   }
 
   const dieHold = (id) => {
-    setDice(prevDice => {
-      const newDice = []
-      for(let die of prevDice) {
-        if (die.id === id) {
-          die = { ...die, isLocked: !die.isLocked}
-        }
-        newDice.push(die)
-      }
-      return newDice
-    })
+    setDice(prevDice => prevDice.map(die => {
+      return die.id === id ? { ...die, isLocked: !die.isLocked} : die
+    }))
   }
 
   const winnerCheck = () => {
@@ -66,7 +59,7 @@ function App() {
         <p>Roll until all dice are the same. Click each die 
         to freeze it at its current value between rolls.</p>
       </div>
-      <Dice dice={dice} handleClick={dieHold}/>
+      <Dice dice={dice} handleClick={dieHold} />
       <button onClick={rollDice} className='roll-btn'>Roll</button>
     </main>
   );
