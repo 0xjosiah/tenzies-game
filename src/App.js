@@ -32,9 +32,9 @@ function App() {
   }
 
   const winnerCheck = () => {
-    let heldArr = dice.filter(i => i.isLocked)
+    let allHeld = dice.every(die => die.isLocked)
     let reducer = dice.reduce((prev, curr) => prev + curr.value, 0) % 10
-    if (heldArr.length === 10 && reducer === 0) {
+    if (allHeld && reducer === 0) {
       return true
     }
     return false
