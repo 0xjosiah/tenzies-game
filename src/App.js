@@ -40,6 +40,10 @@ function App() {
     return false
   }
 
+  const restartGame = () => {
+    setDice(createDiceArray)
+  }
+
   const [dice, setDice] = useState(createDiceArray)
   const [game, setGame] = useState(false)
   useEffect(() => {
@@ -54,7 +58,12 @@ function App() {
         to freeze it at its current value between rolls.</p>
       </div>
       <Dice dice={dice} handleClick={dieHold} />
-      <button onClick={rollDice} className='roll-btn'>{!game ? 'Roll' : 'Restart'}</button>
+      <button 
+        onClick={!game ? rollDice : restartGame} 
+        className='roll-btn'
+      >
+        {!game ? 'Roll' : 'Restart'}
+      </button>
     </main>
   );
 }
