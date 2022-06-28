@@ -85,3 +85,9 @@
 .roll-btn:active {
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
+
+.confetti {
+  position: absolute;
+  background-color: transparent;
+  margin: 0 auto;
+}

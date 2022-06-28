@@ -2,6 +2,7 @@ import './index.css';
 import Dice from './components/Dice'
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid'
+import Confetti from './components/Confetti';
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
 
   return (
     <main className='main'>
+      {isGameOver && <Confetti />}
       <div className='game-title'>
         <h1>Tenzies</h1>
         <p>Roll until all dice are the same. Click each die 
