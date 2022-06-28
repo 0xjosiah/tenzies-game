@@ -42,12 +42,13 @@ function App() {
 
   const restartGame = () => {
     setDice(createDiceArray)
+    setIsGameOver(prevState => !prevState)
   }
 
   const [dice, setDice] = useState(createDiceArray)
-  const [game, setGame] = useState(false)
+  const [isGameOver, setIsGameOver] = useState(false)
   useEffect(() => {
-    if (winnerCheck()) setGame(prevState => !prevState)
+    if (winnerCheck()) setIsGameOver(prevState => !prevState)
   }, [dice])
 
   return (
@@ -59,10 +60,10 @@ function App() {
       </div>
       <Dice dice={dice} handleClick={dieHold} />
       <button 
-        onClick={!game ? rollDice : restartGame} 
+        onClick={!isGameOver ? rollDice : restartGame} 
         className='roll-btn'
       >
-        {!game ? 'Roll' : 'Restart'}
+        {!isGameOver ? 'Roll' : 'Restart'}
       </button>
     </main>
   );
