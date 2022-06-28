@@ -1,6 +1,7 @@
 import './index.css';
 import Dice from './components/Dice'
 import { useState } from 'react';
+import { nanoid } from 'nanoid'
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
   const createDiceArray = () => (
     new Array(10).fill().map(i => (
       {
-        id: 'a',
+        id: nanoid(),
         value: randomDieRoll(),
         isLocked: false
       }
@@ -36,7 +37,7 @@ function App() {
       const newDice = []
       for(let die of prevDice) {
         if (die.id === id) {
-          die = { ...die, isLocked: true}
+          die = { ...die, isLocked: !die.isLocked}
         }
         newDice.push(die)
       }
