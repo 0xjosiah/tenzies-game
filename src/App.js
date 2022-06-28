@@ -33,16 +33,17 @@ function App() {
 
   const winnerCheck = () => {
     let heldArr = dice.filter(i => i.isLocked)
-    let reducer = dice.reduce((prev, curr) => prev + curr.value,0) % 10
+    let reducer = dice.reduce((prev, curr) => prev + curr.value, 0) % 10
     if (heldArr.length === 10 && reducer === 0) {
-      console.log('you win')
+      return true
     }
+    return false
   }
 
   const [dice, setDice] = useState(createDiceArray)
   const [game, setGame] = useState(false)
   useEffect(() => {
-    winnerCheck()
+    if (winnerCheck()) setGame(prevState => !prevState)
   }, [dice])
 
   return (
@@ -53,7 +54,7 @@ function App() {
         to freeze it at its current value between rolls.</p>
       </div>
       <Dice dice={dice} handleClick={dieHold} />
-      <button onClick={rollDice} className='roll-btn'>Roll</button>
+      <button onClick={rollDice} className='roll-btn'>{!game ? 'Roll' : 'Restart'}</button>
     </main>
   );
 }
