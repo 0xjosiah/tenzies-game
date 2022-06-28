@@ -1,6 +1,6 @@
 import './index.css';
 import Dice from './components/Dice'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid'
 
 function App() {
@@ -45,7 +45,19 @@ function App() {
     })
   }
 
+  const winnerCheck = () => {
+    let heldArr = dice.filter(i => i.isLocked)
+    let reducer = dice.reduce((prev, curr) => prev + curr.value,0) % 10
+    if (heldArr.length === 10 && reducer === 0) {
+      console.log('you win')
+    }
+  }
+
   const [dice, setDice] = useState(createDiceArray)
+  const [game, setGame] = useState(false)
+  useEffect(() => {
+    winnerCheck()
+  }, [dice])
 
   return (
     <main className='main'>
