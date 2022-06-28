@@ -20,16 +20,9 @@ function App() {
   )
 
   const rollDice = () => {
-    setDice(prevDice => {
-      const newDice = []
-      for(let die of prevDice) {
-        if (!die.isLocked) {
-          die = { ...die, value: randomDieRoll()}
-        }
-        newDice.push(die)
-      }
-      return newDice
-    })
+    setDice(prevDice => prevDice.map(die => {
+      return !die.isLocked ? { ...die, value: randomDieRoll()} : die
+    }))
   }
 
   const dieHold = (id) => {
