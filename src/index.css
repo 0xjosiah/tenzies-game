@@ -10,7 +10,7 @@
   margin: 3rem auto;
   width: 80%;
   max-width: 650px;
-  height: 500px;
+  height: 450px;
   border-radius: 10px;
   display: flex;
   justify-content: flex-start;
@@ -22,10 +22,6 @@
   background-color: transparent;
   margin: 2em auto;
   text-align: center;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; */
 }
 
 .game-title h1 {
@@ -43,9 +39,7 @@
   background-color: transparent;
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
-  gap: 2.5em;
-  /* justify-self: center; */
-  /* margin: 0 auto; */
+  gap: 2em;
 }
 
 .die {
@@ -90,4 +84,21 @@
   position: absolute;
   background-color: transparent;
   margin: 0 auto;
+}
+
+@media (max-width: 465px) {
+  .main {
+    height: 600px;
+  }
+
+  .dice-container {
+    grid-template: auto auto auto / repeat(3, 1fr);
+    gap: 1em;
+  }
+}
+
+@media (max-width: 590px) {
+  .dice-container {
+    gap: 1em;
+  }
 }
