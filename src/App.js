@@ -56,7 +56,7 @@ function App() {
     <main className='main'>
       {isGameOver && <Confetti />}
       <div className='game-title'>
-        <h1>Tenzies</h1>
+        <h1>{isGameOver && '!! '}Tenzies{isGameOver && ' !!'}</h1>
         <p>Roll until all dice are the same. Click each die 
         to freeze it at its current value between rolls.</p>
       </div>
